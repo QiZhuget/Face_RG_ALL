@@ -1,0 +1,23 @@
+脚本 ：face_feature_extractor.py（离线特征生成）
+专门负责从人脸图片文件夹提取特征，生成并保存特征库文件，只需要运行一次（新增 / 修改人脸时再重新运行）。
+
+脚本 ：realtime_face_matcher.py（实时人脸匹配）
+专门加载已生成的特征库，运行实时摄像头匹配，无需依赖原始图片，直接用特征文件即可。
+
+脚本 ：camera_face_capture.py（）
+拍照后可以手动输入姓名，再自动保存为 姓名.jpg 到 face_database
+
+函数
+
+realtime_face_matcher_dlib.py               4fps
+原基础上加入人脸对齐基于dlib    2026.3.12
+
+
+
+
+
+4.25 左右   应该是最后一版
+ rapi_test适配树莓派
+ 将yolo输入改为320*320并重新训练；后将yolo、mobilefacenet模型量化为INT8类型；68点检测改为5点检测；速度提高3倍左右，目前约15fps
+ 此次是重大改动，读取模型不再使用opencv的cnn，改为onnxruntime的InferenceSession
+
